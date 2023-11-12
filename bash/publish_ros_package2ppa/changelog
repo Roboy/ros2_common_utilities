@@ -1,0 +1,5 @@
+PACKAGENAME (VERSIONNUMBER-1) trusty; urgency=low
+
+  * Initial release 
+
+ -- Simon Trendel <simon.trendel@tum.de>  Sat, 15 Aug 2016 10:55:27 +0200
