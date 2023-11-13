@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>common_utilities</name>
+  <name>ros2_common_utilities</name>
   <version>0.0.0</version>
   <description>Roboy common utilities and headers</description>
   <maintainer email="simon.trendel@tum.de">Simon Trendel</maintainer>

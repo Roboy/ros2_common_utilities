@@ -1,4 +1,4 @@
-#include "common_utilities/rviz_visualization.hpp"
+#include "ros2_common_utilities/rviz_visualization.hpp"
 
 boost::shared_ptr<interactive_markers::InteractiveMarkerServer> rviz_visualization::interactive_marker_server;
 interactive_markers::MenuHandler rviz_visualization::menu_handler;

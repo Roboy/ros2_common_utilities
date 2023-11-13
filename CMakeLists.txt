@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
-project( common_utilities )
+project( ros2_common_utilities )
 
 
 SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
@@ -16,10 +16,9 @@ SET(CMAKE_BUILD_TYPE Debug)
 
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-
 find_package(rclcpp_components REQUIRED)
-find_package(std_msgs  REQUIRED)
 find_package(roboy_middleware_msgs REQUIRED)
+find_package(std_msgs  REQUIRED)
 
 find_package(eigen3_cmake_module)
 find_package(Eigen3)
@@ -33,7 +32,7 @@ include_directories( include )
 ament_export_include_directories(include)
 ament_export_dependencies(rosidl_default_runtime)
 
-add_library(motor_config SHARED src/MotorConfig.cpp) # include/common_utilities/MotorConfig.hpp include/common_utilities/CommonDefinitions.h)
+add_library(motor_config SHARED src/MotorConfig.cpp) # include/ros2_common_utilities/MotorConfig.hpp include/ros2_common_utilities/CommonDefinitions.h)
 #target_compile_definitions(motor_config)                                               
 ament_target_dependencies(motor_config rclcpp rclcpp_components std_msgs roboy_middleware_msgs)
 #==============================================================================
@@ -81,7 +80,7 @@ install(TARGETS
 
 
 
-#install(DIRECTORY include/common_utilities/
+#install(DIRECTORY include/ros2_common_utilities/
 #        DESTINATION include
 #        FILES_MATCHING PATTERN "*.hpp"
 #        )

@@ -1,4 +1,4 @@
-#include "common_utilities/MotorConfig.hpp"
+#include "ros2_common_utilities/MotorConfig.hpp"
 
 bool MotorConfig::readConfig(const string &filepath){
     if(!fileExists(filepath)) {

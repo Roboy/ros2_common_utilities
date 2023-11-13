@@ -1,4 +1,4 @@
-#include "common_utilities/UDPSocket.hpp"
+#include "ros2_common_utilities/UDPSocket.hpp"
 #include <chrono>
 
 using namespace std;
@@ -28,7 +28,7 @@ int main(int argc, char *argv[]){
         receiver_socket = UDPSocketPtr(new UDPSocket(port, client_IP, false));
         printf("Starting rfid unlocker with client IP: %s:%d\n", argv[1],port);
     }else{
-        printf("USAGE: rosrun common_utilities rfid_unlocker 192.168.0.104\n");
+        printf("USAGE: rosrun ros2_common_utilities rfid_unlocker 192.168.0.104\n");
         printf("Please supply broadcast IP\n");
         return -1;
     }
