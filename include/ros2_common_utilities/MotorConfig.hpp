@@ -23,11 +23,11 @@ public:
           coeffs_displacement2force(coeffs_displacement2force){
         stringstream str;
         str << "force -> displacement" << "\t ";
-        for(int i=0;i<coeffs_force2displacement.size();i++){
+        for(size_t i=0;i<coeffs_force2displacement.size();i++){
             str << coeffs_force2displacement[i] << "\t";
         }
         str << "\n displacement -> force" << "\t ";
-        for(int i=0;i<coeffs_displacement2force.size();i++){
+        for(size_t i=0;i<coeffs_displacement2force.size();i++){
             str << coeffs_displacement2force[i] << "\t";
         }
         RCLCPP_ERROR(rclcpp::get_logger("rclcpp"),"Motor with global id %d on bus %d with motor_id %d and bus_id %d initialized with polynomial parameters:"

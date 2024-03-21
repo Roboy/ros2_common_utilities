@@ -319,7 +319,7 @@ uint32_t UDPSocket::receiveHostIP(const char *key, uint32_t &IP){
     bool access_granted = true;
     uint8_t user[4] = {0xBF, 0x42, 0x76, 0xE9};
     int j = 0;
-    for (int i=0; i<strlen(key); i++)
+    for (size_t i=0; i<strlen(key); i++)
     {
         output[i] = buf[i+4] ^ user[j];
         if(output[i]!=key[i])

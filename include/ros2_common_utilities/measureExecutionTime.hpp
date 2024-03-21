@@ -23,11 +23,11 @@ public:
     }
 
     void start(){
-        start_point = Clock::now();
+        start_point = rclcpp::Clock().now();
     }
 
     double stop(const char *name){
-        stop_point = Clock::now();
+        stop_point = rclcpp::Clock().now();
         milliseconds diff = duration_cast<milliseconds>(stop_point - start_point);
         double ms = diff.count();
         log_file << name << " " << ms << "ms" << std::endl;

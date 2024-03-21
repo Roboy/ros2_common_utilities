@@ -14,7 +14,7 @@ bool MotorConfig::readConfig(const string &filepath){
     for(int i=0;i<number_of_icebuses;i++){
         char str[20];
         sprintf(str,"icebus_%d",i);
-        int number_of_motors = config[str]["number_of_motors"].as<int>();
+        size_t number_of_motors = config[str]["number_of_motors"].as<int>();
         vector<int> bus_ids = config[str]["bus_ids"].as<vector<int>>();
         vector<int> motor_ids = config[str]["motor_ids"].as<vector<int>>();
         vector<int> motor_ids_global = config[str]["motor_ids_global"].as<vector<int>>();
@@ -41,7 +41,7 @@ bool MotorConfig::readConfig(const string &filepath){
             RCLCPP_ERROR(rclcpp::get_logger("rclcpp"),"coeffs_displacement2force of icebus %d does not match number_of_motors, check your motor config file, adjusting to number_of_motors parameter and continue",i);
             coeffs_displacement2force.resize(number_of_motors);
         }
-        for(int m=0;m<number_of_motors;m++){
+        for(size_t m=0;m<number_of_motors;m++){
             MotorPtr motor_ = MotorPtr(new Motor(i,bus_ids[m],motor_ids[m],motor_ids_global[m],muscleType[m],
                     coeffs_force2displacement[m],
                                        coeffs_displacement2force[m]));
@@ -59,7 +59,7 @@ bool MotorConfig::readConfig(const string &filepath){
     for(int i=0;i<number_of_myobuses;i++){
         char str[20];
         sprintf(str,"myobus_%d",i);
-        int number_of_motors = config[str]["number_of_motors"].as<int>();
+        size_t number_of_motors = config[str]["number_of_motors"].as<int>();
         vector<int> motor_ids = config[str]["motor_ids"].as<vector<int>>();
         vector<int> motor_ids_global = config[str]["motor_ids_global"].as<vector<int>>();
         vector<string> muscleType = config[str]["muscle_type"].as<vector<string>>();
@@ -81,7 +81,7 @@ bool MotorConfig::readConfig(const string &filepath){
             RCLCPP_ERROR(rclcpp::get_logger("rclcpp"),"coeffs_displacement2force of myobus %d does not match number_of_motors, check your motor config file",i);
             continue;
         }
-        for(int m=0;m<number_of_motors;m++){
+        for(size_t m=0;m<number_of_motors;m++){
             MotorPtr motor_ = MotorPtr(new Motor(i,motor_ids[m],motor_ids[m],motor_ids_global[m],muscleType[m],
                                                  coeffs_force2displacement[m],
                                                  coeffs_displacement2force[m]));
@@ -93,10 +93,10 @@ bool MotorConfig::readConfig(const string &filepath){
 
     vector<string> body_parts = config["body_part"]["name"].as<vector<string>>();
     vector<vector<int>> body_part_motor_ids_global = config["body_part"]["motor_ids_global"].as<vector<vector<int>>>();
-    for(int i=0;i<body_parts.size();i++){
+    for(size_t i=0;i<body_parts.size();i++){
         body_part[i].reset(new BodyPart());
         body_part[i]->name = body_parts[i];
-        for(int j=0;j<body_part_motor_ids_global[i].size();j++){
+        for(size_t j=0;j<body_part_motor_ids_global[i].size();j++){
             if(motor.find(body_part_motor_ids_global[i][j]) != motor.end())
               body_part[i]->motor_ids_global.push_back(motor[body_part_motor_ids_global[i][j]]);
             else

@@ -43,7 +43,7 @@ int main(int argc, char *argv[]){
             uint j = 0;
             char output[strlen(key)];
             bool access_granted = true;
-            for (int i=0; i<strlen(key); i++)
+            for (size_t i=0; i<strlen(key); i++)
             {
                 output[i] = receiver_socket->buf[i] ^ user[j];
                 if(output[i]!=key[i])

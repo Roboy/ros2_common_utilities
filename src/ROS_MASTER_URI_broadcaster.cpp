@@ -1,4 +1,4 @@
-#include <ros/ros.h>
+#include <rclcpp/rclcpp.hpp>
 #include "ros2_common_utilities/UDPSocket.hpp"
 
 const char* key = "The path of the righteous man is beset on all sides by the inequities of the "
@@ -10,11 +10,11 @@ const char* key = "The path of the righteous man is beset on all sides by the in
         "when I lay my vengeance upon you\0";
 
 int main(int argc, char *argv[]){
-    if (!ros::isInitialized()) {
-        int argc = 0;
-        char **argv = NULL;
-        ros::init(argc, argv, "ROS_MASTER_URI_broadcaster");
-    }
+    // if (!ros::isInitialized()) {
+    //     int argc = 0;
+    //     char **argv = NULL;
+    //     ros::init(argc, argv, "ROS_MASTER_URI_broadcaster");
+    // }
 
     char hostname[20];
     /* Open the command for reading. */
@@ -37,8 +37,8 @@ int main(int argc, char *argv[]){
     }
 //    printf("%s\n%s\n", key, output);
 
-    while(ros::ok()){
-        ROS_INFO("broadcasting HOST IP");
+    while(rclcpp::ok()){
+        RCLCPP_INFO(rclcpp::get_logger("ROS_MASTER_URI_broadcaster"), "broadcasting HOST IP");
         broadcast_socket->broadcastHostIP(output,strlen(key));
         usleep(5000000);
     }

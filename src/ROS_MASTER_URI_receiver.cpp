@@ -1,4 +1,4 @@
-#include <ros/ros.h>
+#include <rclcpp/rclcpp.hpp>
 #include <ros2_common_utilities/UDPSocket.hpp>
 
 const char* key = "The path of the righteous man is beset on all sides by the inequities of the "
@@ -10,15 +10,15 @@ const char* key = "The path of the righteous man is beset on all sides by the in
         "when I lay my vengeance upon you\0";
 
 int main(int argc, char *argv[]){
-    if (!ros::isInitialized()) {
-        int argc = 0;
-        char **argv = NULL;
-        ros::init(argc, argv, "ROS_MASTER_URI_receiver");
-    }
+    // if (!ros::isInitialized()) {
+    //     int argc = 0;
+    //     char **argv = NULL;
+    //     ros::init(argc, argv, "ROS_MASTER_URI_receiver");
+    // }
     // create the IP broadcast Socket
     UDPSocketPtr receiver_socket = UDPSocketPtr(new UDPSocket(BROADCAST_PORT, false));
     uint32_t status = 0;
-    while(status!=3 && !ros::master::check()){
+    while(status!=3) { // && !ros::master::check()){
         usleep(1000000);
         printf("listening for HOST IP\n");
         uint32_t host_IP;
@@ -26,7 +26,7 @@ int main(int argc, char *argv[]){
         if(status==3){
             char IP[16];
             receiver_socket->convertByte2Text(host_IP,IP);
-            ROS_INFO("Received HOST IP: %s",IP);
+            RCLCPP_INFO(rclcpp::get_logger("ROS_MASTER_URI_receiver"), "Received HOST IP: %s",IP);
             char ros_master_uri[100];
             sprintf(ros_master_uri, "ROS_MASTER_URI=http://%s:11311",IP);
             printf("%s\n",ros_master_uri);
