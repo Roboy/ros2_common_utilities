@@ -1,18 +1,18 @@
 #pragma once
 
-#include "rclcpp/rclcpp.hpp" // #include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 #include "rclcpp/duration.hpp"
-#include "ament_index_cpp/get_package_share_directory.hpp" // #include <ros/package.h>
-#include "visualization_msgs/msg/marker.hpp" // #include <visualization_msgs/Marker.h>
-#include "visualization_msgs/msg/marker_array.hpp" // #include <visualization_msgs/MarkerArray.h>
-#include <eigen3/Eigen/Core> // #include <Eigen/Core>
-#include <eigen3/Eigen/Dense> // #include <Eigen/Dense>
+#include "ament_index_cpp/get_package_share_directory.hpp"
+#include "visualization_msgs/msg/marker.hpp"
+#include "visualization_msgs/msg/marker_array.hpp"
+#include <eigen3/Eigen/Core>
+#include <eigen3/Eigen/Dense>
 #include <memory>
 
-#include "tf2/transform_datatypes.h" // #include <tf/tf.h>
-#include "tf2_ros/transform_listener.h" // #include <tf/transform_listener.h>
-#include "tf2_ros/transform_broadcaster.h" // #include <tf/transform_broadcaster.h>
-#include <tf2/convert.h> // #include "tf2_eigen/tf2_eigen.h" // #include <tf_conversions/tf_eigen.h>
+#include "tf2/transform_datatypes.h"
+#include "tf2_ros/transform_listener.h"
+#include "tf2_ros/transform_broadcaster.h"
+#include <tf2/convert.h>
 
 #include "tf2_ros/static_transform_broadcaster.h"
 #include "tf2_ros/transform_broadcaster.h"
@@ -20,10 +20,10 @@
 #include "geometry_msgs/msg/transform_stamped.hpp"
 
 
-#include "visualization_msgs/msg/interactive_marker.hpp" // #include "interactive_markers/menu_handler.hpp" // #include <interactive_markers/menu_handler.h>
-#include "interactive_markers/interactive_marker_server.hpp" // #include <interactive_markers/interactive_marker_server.h>
+#include "visualization_msgs/msg/interactive_marker.hpp"
+#include "interactive_markers/interactive_marker_server.hpp"
 #include "interactive_markers/menu_handler.hpp"
-#include "geometry_msgs/msg/pose.hpp" // #include <geometry_msgs/Pose.h>
+#include "geometry_msgs/msg/pose.hpp"
 #include <string>
 #include <sys/stat.h>
 

@@ -19,6 +19,7 @@ rviz_visualization::rviz_visualization() {
 
     if(first){
         first = false;
+        // TODO
         // interactive_marker_server = std::shared_ptr<interactive_markers::InteractiveMarkerServer>(new interactive_markers::InteractiveMarkerServer("interactive_markers")) ;
 
         // menu_handler.insert( "First Entry", &processFeedback );
